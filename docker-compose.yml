@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: short_drama_agent_pg
+    environment:
+      POSTGRES_USER: drama
+      POSTGRES_PASSWORD: drama
+      POSTGRES_DB: short_drama_agent
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ./backend/app/storage/schema.sql:/docker-entrypoint-initdb.d/001_schema.sql:ro
+
+volumes:
+  pg_data:

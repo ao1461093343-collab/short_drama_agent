@@ -1,0 +1,59 @@
+[project]
+name = "short-drama-agent-backend"
+version = "0.1.0"
+description = "LangGraph + MCP powered short drama script creation agent."
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115.0",
+  "uvicorn[standard]>=0.30.0",
+  "pydantic>=2.8.0",
+  "pydantic-settings>=2.3.0",
+  "langgraph>=0.2.0",
+  "langchain-core>=0.3.0",
+  "langchain-openai>=0.2.0",
+  "openai>=1.40.0",
+  "sqlalchemy>=2.0.30",
+  "psycopg[binary]>=3.2.0",
+  "pgvector>=0.3.0",
+  "alembic>=1.13.0",
+  "mcp>=1.0.0",
+  "python-dotenv>=1.0.1",
+  "python-docx>=1.1.2",
+  "reportlab>=4.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2.0",
+  "ruff>=0.5.0",
+]
+local-embedding = [
+  "sentence-transformers>=3.0.0",
+  "torch>=2.11.0",
+]
+
+[dependency-groups]
+dev = [
+  "pytest>=8.2.0",
+  "ruff>=0.5.0",
+]
+
+[tool.uv]
+package = true
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cu130", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

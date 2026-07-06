@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.local
+.env.*.local
+node_modules/
+dist/
+.vite/
+exports/
+.idea/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+data/projects.json
+*.log
