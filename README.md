@@ -66,12 +66,6 @@ flowchart TD
 docker compose up -d postgres
 ```
 
-如果你之前已经用 `1536` 维 embedding 建过库，现在切到 BGE-M3 的 `1024` 维，建议重建本地测试卷：
-
-```bash
-docker compose down -v
-docker compose up -d postgres
-```
 
 ### 2. 启动后端
 
